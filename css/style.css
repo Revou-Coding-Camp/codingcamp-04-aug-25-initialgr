@@ -3,21 +3,153 @@ body {
   background-color: #e6e9f5;
 }
 
-/* Custom styles for icons - using SVG as requested */
-.icon-menu {
-  width: 24px;
-  height: 24px;
-  stroke-width: 2px;
-}
-
-.icon-search,
-.icon-bell {
-  width: 20px;
-  height: 20px;
-}
-
 .filter-option.active {
   font-weight: 700;
   color: #1f2937;
-  /* A dark gray to stand out */
+}
+
+.add-icon-rotate {
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.popup-menu-transition {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: bottom right;
+}
+
+.popup-menu-show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Hamburger icon animations */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 50;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  border-radius: 9px;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Sidebar pop-up animation (positioned below the button) */
+#sidebar-menu {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: top left;
+  top: calc(100% + 10px);
+  /* Positioned below the header with a small gap */
+  left: 0;
+  width: 200px;
+  height: 190px;
+  z-index: 20;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sidebar-menu.sidebar-open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Modal overlay and pop-up */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+/* Styles for the message box */
+.message-box-container {
+  max-height: 50px;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 50;
+  pointer-events: none;
+  /* Allows clicks to pass through */
+}
+
+.message-box-container>div {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: white;
+  transition: transform 0.5s ease-in-out;
+  transform: scale(0);
+  transform-origin: top;
+  margin-top: 1rem;
+}
+
+.message-box-container>div.scale-100 {
+  transform: scale(1);
 }
