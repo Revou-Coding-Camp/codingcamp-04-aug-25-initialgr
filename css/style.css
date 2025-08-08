@@ -1,0 +1,23 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #e6e9f5;
+}
+
+/* Custom styles for icons - using SVG as requested */
+.icon-menu {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
+
+.icon-search,
+.icon-bell {
+  width: 20px;
+  height: 20px;
+}
+
+.filter-option.active {
+  font-weight: 700;
+  color: #1f2937;
+  /* A dark gray to stand out */
+}
