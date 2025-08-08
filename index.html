@@ -2,143 +2,173 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What's up, Joy!</title>
-  <!-- Use Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's up, Joy!</title>
+    <!-- Use Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
 
-  <!-- Sidebar Pop-up Menu -->
-  <div id="sidebar-menu"
-    class="fixed top-0 left-0 h-full w-64 bg-white z-20 shadow-xl transform -translate-x-full transition-transform duration-300">
-    <div class="flex flex-col h-full p-6 space-y-6">
-      <!-- Close button -->
-      <div class="flex justify-end">
-        <button id="sidebar-close-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
+    <!-- Main Container simulating a mobile device -->
+    <div class="bg-white rounded-3xl shadow-xl w-full max-w-sm p-6 space-y-6 m-4 md:m-0">
 
-      <!-- User Profile and Info -->
-      <div class="flex flex-col items-center space-y-4">
-        <img id="user-profile-image" class="w-20 h-20 rounded-full object-cover"
-          src="https://placehold.co/80x80/f3f4f6/6b7280?text=JD"
-          onerror="this.onerror=null;this.src='https://placehold.co/80x80/f3f4f6/6b7280?text=JD';" alt="User Profile">
-        <p id="user-name" class="text-xl font-bold text-gray-800">Joy Doe</p>
-      </div>
+        <!-- Header Section (now relative to position the sidebar) -->
+        <header class="flex justify-between items-center text-gray-500 relative">
+            <!-- Hamburger Menu Icon -->
+            <button id="sidebar-toggle-btn" class="menu-toggle focus:outline-none text-gray-500">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Sidebar Pop-up Menu -->
+            <div id="sidebar-menu">
+                <!-- User info and logout button as per the new design -->
+                <div class="flex items-center space-x-4 mb-4">
+                    <img src="https://avatars.githubusercontent.com/u/68853366?s=400&amp;u=9406c521bcf97da67ce7111f2b91761d7c90c9f9&amp;v=4"
+                        alt="Gilang Ramadhan" class="w-16 h-16 rounded-full border-2 border-white shadow-md">
+                    <p id="user-name" class="text-lg font-bold text-gray-800">Gilang</p>
+                </div>
+                <a href="https://www.linkedin.com/in/gilang-gr/" id="linkedin-button" target="_blank"
+                    class="flex items-center w-full px-2 py-2 mt-2 text-black transition-colors duration-200 rounded-lg hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black mr-2" viewBox="0 0 24 24"
+                        fill="currentColor" role="img" aria-labelledby="linkedinTitle">
+                        <title id="linkedinTitle">LinkedIn</title>
+                        <path
+                            d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0zM7.119 20.452H3.554V9h3.565v11.452zM5.337 7.433a2.067 2.067 0 1 1 0-4.134 2.067 2.067 0 0 1 0 4.134zM20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.85-3.037-1.853 0-2.136 1.445-2.136 2.941v5.665H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.368-1.85 3.602 0 4.268 2.369 4.268 5.455v6.286z" />
+                    </svg>
+                    <span class="ml-2">Linkedin</span>
+                </a>
+                <a id="github-button" target="_blank" href="https://github.com/initialgr"
+                    class="flex items-center w-full px-2 py-2 mt-2 text-black transition-colors duration-200 rounded-lg hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black mr-2" viewBox="0 0 24 24"
+                        fill="currentColor" role="img" aria-labelledby="githubTitle">
+                        <title id="githubTitle">GitHub</title>
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.262.82-.582 
+               0-.288-.01-1.05-.015-2.06-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 
+               1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 
+               0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404 
+               11.48 11.48 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 
+               1.235 1.91 1.235 3.22 0 4.61-2.804 5.624-5.475 5.922.43.372.823 1.102.823 2.222 
+               0 1.605-.015 2.898-.015 3.293 0 .322.217.7.825.58C20.565 21.796 24 17.297 24 12 
+               24 5.37 18.63 0 12 0z" />
+                    </svg>
+                    <span class="ml-2">GitHub</span>
+                </a>
+            </div>
+            <!-- Live Clock -->
+            <div id="live-clock" class="text-gray-500 font-bold text-sm px-2 py-1"></div>
+        </header>
 
-      <!-- Navigation/Logout links -->
-      <div class="flex-1 flex flex-col justify-end pb-8">
-        <button id="logout-button"
-          class="w-full text-left px-4 py-2 text-red-500 rounded-lg hover:bg-red-100 transition-colors duration-200">
-          Logout
-        </button>
-      </div>
-    </div>
-  </div>
+        <!-- Greeting -->
+        <h1 class="text-3xl font-bold text-gray-800 pt-4">What's up, Gilang!</h1>
 
-  <!-- Overlay for closing the menu -->
-  <div id="sidebar-overlay" class="fixed inset-0 bg-black opacity-0 z-10 hidden transition-opacity duration-300"></div>
-
-  <!-- Main Container simulating a mobile device -->
-  <div class="bg-white rounded-3xl shadow-xl w-full max-w-sm p-6 space-y-6 m-4 md:m-0">
-
-    <!-- Header Section -->
-    <header class="flex justify-between items-center text-gray-500">
-      <!-- Hamburger Menu Icon -->
-      <button id="sidebar-open-btn" class="focus:outline-none">
-        <svg class="icon-menu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-      <!-- Right side icons -->
-      <div class="flex items-center space-x-4">
-        <!-- Search Icon -->
-        <svg class="icon-search" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-        <!-- Bell Icon -->
-        <svg class="icon-bell" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-          </path>
-        </svg>
-      </div>
-    </header>
-
-    <!-- Greeting -->
-    <h1 class="text-3xl font-bold text-gray-800 pt-4">What's up, Joy!</h1>
-
-    <!-- Categories Section -->
-    <div>
-      <h2 class="text-gray-400 text-xs font-semibold uppercase mb-2">CATEGORIES</h2>
-      <div class="flex space-x-4" id="categories-container">
-        <!-- Category cards will be rendered here by JavaScript -->
-      </div>
-    </div>
-
-    <!-- Today's Tasks Section with filter -->
-    <div>
-      <div class="flex justify-between items-center relative">
-        <div class="flex items-center space-x-2">
-          <h2 class="text-gray-400 text-xs font-semibold uppercase">TODAY'S TASKS</h2>
+        <!-- Categories Section -->
+        <div>
+            <h2 class="text-gray-400 text-xs font-semibold uppercase mb-2">CATEGORIES</h2>
+            <div class="flex space-x-4" id="categories-container">
+                <!-- Category cards will be rendered here by JavaScript -->
+            </div>
         </div>
-        <!-- Filter Pop-up Trigger -->
-        <button id="filter-popup-button" class="text-gray-400 focus:outline-none">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
-            </path>
-          </svg>
-        </button>
-        <!-- Filter Pop-up Menu -->
-        <div id="filter-popup-menu"
-          class="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border hidden z-10">
-          <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="filter-popup-button">
-            <button
-              class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left active"
-              data-filter="all" role="menuitem">All</button>
-            <button class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
-              data-filter="open" role="menuitem">Open</button>
-            <button class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
-              data-filter="closed" role="menuitem">Closed</button>
-            <hr class="my-1 border-gray-200">
-            <button class="filter-option block w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 text-left"
-              data-filter="delete-all" role="menuitem">Delete All</button>
-          </div>
+
+        <!-- Today's Tasks Section with filter -->
+        <div>
+            <div class="flex justify-between items-center relative">
+                <div class="flex items-center space-x-2">
+                    <h2 class="text-gray-400 text-xs font-semibold uppercase">TODAY'S TASKS</h2>
+                </div>
+                <!-- Filter Pop-up Trigger -->
+                <button id="filter-popup-button" class="text-gray-400 focus:outline-none">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                        </path>
+                    </svg>
+                </button>
+                <!-- Filter Pop-up Menu -->
+                <div id="filter-popup-menu"
+                    class="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border hidden z-10">
+                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="filter-popup-button">
+                        <button
+                            class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left active"
+                            data-filter="all" role="menuitem">All</button>
+                        <button
+                            class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
+                            data-filter="open" role="menuitem">Open</button>
+                        <button
+                            class="filter-option block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
+                            data-filter="closed" role="menuitem">Closed</button>
+                        <hr class="my-1 border-gray-200">
+                        <button
+                            class="filter-option block w-full px-4 py-2 text-sm text-red-500 hover:bg-gray-100 text-left"
+                            data-filter="delete-all" role="menuitem">Delete All</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Scrollable task list container. The max-h-[250px] makes it scrollable when content overflows. -->
+            <div class="space-y-4 mt-4 overflow-y-auto max-h-[250px]" id="task-list">
+                <!-- Task items will be rendered here by JavaScript -->
+            </div>
         </div>
-      </div>
-      <div class="space-y-4 mt-4" id="task-list">
-        <!-- Task items will be rendered here by JavaScript -->
-      </div>
     </div>
 
-    <!-- Floating Action Button -->
-    <div class="fixed bottom-10 right-10">
-      <button
-        class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-colors duration-300 transform scale-100 hover:scale-110">
-        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-        </svg>
-      </button>
+    <!-- Floating Action Button and Pop-up Menu -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-2 z-10">
+        <!-- Floating Action Button -->
+        <button id="add-fab"
+            class="bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform scale-100 hover:scale-110">
+            <svg id="add-icon" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+        </button>
+        <!-- Add pop-up Menu -->
+        <div id="add-popup-menu"
+            class="absolute bottom-20 right-0 hidden flex flex-col-reverse items-center gap-2 popup-menu-transition">
+            <!-- Pop-up items are now circular icons -->
+            <button id="add-task-btn" class="bg-blue-600 text-white p-4 rounded-full shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M18 10a.999.999 0 011 1.001A.999.999 0 0118 12.001a1 1 0 01-1-1.001A.999.999 0 0118 10z" />
+                </svg>
+            </button>
+            <button id="add-category-btn" class="bg-fuchsia-600 text-white p-4 rounded-full shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                </svg>
+            </button>
+        </div>
     </div>
-  </div>
 
-  <!-- JavaScript for interactivity -->
-  <script src="js/script.js"></script>
+    <!-- Add Task Modal -->
+    <div id="add-task-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold mb-4">Add a New Task</h3>
+            <input type="text" id="new-task-input"
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+                placeholder="Task name">
+            <input type="date" id="new-task-date-input"
+                class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+            <div class="flex justify-end space-x-2">
+                <button id="cancel-task-btn"
+                    class="bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-full">Cancel</button>
+                <button id="confirm-task-btn" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Add
+                    Task</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
