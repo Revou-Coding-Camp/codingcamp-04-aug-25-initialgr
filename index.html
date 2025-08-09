@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="flex justify-center relative overflow-hidden py-12">
+<body class="flex justify-center min-h-screen relative overflow-auto py-12">
 
     <!-- Main Container simulating a mobile device -->
     <div class="bg-white rounded-3xl shadow-xl w-full max-w-sm p-6 space-y-6 m-4 md:m-0">
@@ -112,14 +112,27 @@
                 </div>
             </div>
             <!-- Scrollable task list container. The max-h-[250px] makes it scrollable when content overflows. -->
-            <div class="space-y-4 mt-4 overflow-y-auto max-h-[170px]" id="task-list">
+            <div class="space-y-4 mt-4 overflow-y-auto max-h-[250px]" id="task-list">
                 <!-- Task items will be rendered here by JavaScript -->
+            </div>
+            <!-- Button Add Task Desktop -->
+            <div class="hidden md:flex space-x-4 mt-4" id="add-task-btn-desktop">
+                <div class="bg-blue-600 text-white p-4 rounded-xl flex items-center justify-center gap-2 flex-1">
+                    <!-- Text -->
+                    <p>Add Task</p>
+                    <!-- Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M18 10a.999.999 0 011 1.001A.999.999 0 0118 12.001a1 1 0 01-1-1.001A.999.999 0 0118 10z" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Floating Action Button and Pop-up Menu -->
-    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-2 z-10">
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-2 z-10 md:hidden">
         <!-- Floating Action Button -->
         <button id="add-fab"
             class="bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform scale-100 hover:scale-110">
@@ -132,7 +145,7 @@
         <div id="add-popup-menu"
             class="absolute bottom-20 right-0 hidden flex flex-col-reverse items-center gap-2 popup-menu-transition">
             <!-- Pop-up items are now circular icons -->
-            <button id="add-task-btn" class="bg-blue-600 text-white p-4 rounded-full shadow-md">
+            <button id="add-task-btn-mobile" class="bg-blue-600 text-white p-4 rounded-full shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -152,7 +165,7 @@
     <!-- Add Task Modal -->
     <div id="add-task-modal" class="modal-overlay">
         <div class="modal-content">
-            <h3 class="text-xl font-bold mb-4">Add a New Task</h3>
+            <h3 class="text-xl font-bold mb-4">Add a New Task </h3>
             <input type="text" id="new-task-input"
                 class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
                 placeholder="Task name">

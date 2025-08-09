@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Floating Action Button elements
   const addFab = document.getElementById('add-fab');
   const addPopupMenu = document.getElementById('add-popup-menu');
-  const addTaskBtn = document.getElementById('add-task-btn');
+  const addTaskBtnMobile = document.getElementById('add-task-btn-mobile');
+  const addTaskBtnDesktop = document.getElementById('add-task-btn-desktop');
   const addCategoryBtn = document.getElementById('add-category-btn');
   const addIcon = document.getElementById('add-icon');
 
@@ -183,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTaskModal.classList.add('show');
     newTaskInput.focus();
     // Set today's date as default
-    newTaskDateInput.valueAsDate = new Date() ;
+    newTaskDateInput.valueAsDate = new Date();
   }
 
   function hideAddTaskModal() {
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function addNewTask() {
     const taskName = newTaskInput.value.trim();
     const taskDate = newTaskDateInput.value;
-    if (!taskName  && !taskDate) {
+    if (!taskName && !taskDate) {
       displayError('Nama tugas dan tanggal tidak boleh kosong!');
       return;
     } else if (!taskDate) {
@@ -322,8 +323,14 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleAddMenu();
   });
 
-  // Event listener for the floating "Add Task" button
-  addTaskBtn.addEventListener('click', () => {
+  // Event listener for the desktop "Add Task" button
+  addTaskBtnDesktop.addEventListener('click', () => {
+    hideAddMenu();
+    showAddTaskModal();
+  });
+
+  // Event listener for the mobile "Add Task" button
+  addTaskBtnMobile.addEventListener('click', () => {
     hideAddMenu();
     showAddTaskModal();
   });
