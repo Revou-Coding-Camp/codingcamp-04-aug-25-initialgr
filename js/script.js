@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTaskModal.classList.add('show');
     newTaskInput.focus();
     // Set today's date as default
-    newTaskDateInput.valueAsDate = new Date();
+    newTaskDateInput.valueAsDate = new Date() ;
   }
 
   function hideAddTaskModal() {
@@ -196,7 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function addNewTask() {
     const taskName = newTaskInput.value.trim();
     const taskDate = newTaskDateInput.value;
-    if (!taskName) {
+    if (!taskName  && !taskDate) {
+      displayError('Nama tugas dan tanggal tidak boleh kosong!');
+      return;
+    } else if (!taskDate) {
+      displayError('Tanggal tugas tidak boleh kosong!');
+      return;
+    } else if (!taskName) {
       displayError('Nama tugas tidak boleh kosong!');
       return;
     }
